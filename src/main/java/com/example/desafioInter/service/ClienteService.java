@@ -32,17 +32,17 @@ public class ClienteService {
 
     public Cliente buscarClientePorId(Long id){
         Optional<Cliente> obj = clienteRepository.findById(id);
-        return obj.orElseThrow(() -> new ObjectNotFoundException("Cliente não encontrado! Id: " +id+ ", Tipo: " +Cliente.class.getName()));
+        return obj.orElseThrow(() -> new ObjectNotFoundException("Cliente não encontrado! Id: " +id));
     }
 
     public Cliente buscarClientePorNome(String nome){
         Optional<Cliente> obj = clienteRepository.findByNome(nome);
-        return obj.orElseThrow(() -> new ObjectNotFoundException("Cliente não encontrado! Nome: " +nome+ ", Tipo: " +Cliente.class.getName()));
+        return obj.orElseThrow(() -> new ObjectNotFoundException("Cliente não encontrado! Nome: " +nome));
     }
 
     public Cliente buscarClientePorCpf(String cpf){
         Optional<Cliente> obj = clienteRepository.findByCpf(cpf);
-        return obj.orElseThrow(() -> new ObjectNotFoundException("Cliente não encontrado! CPF: " +cpf+ ", Tipo: " +Cliente.class.getName()));
+        return obj.orElseThrow(() -> new ObjectNotFoundException("Cliente não encontrado! CPF: " +cpf));
     }
 
     public List<Cliente> buscarTodosOsClientes() {

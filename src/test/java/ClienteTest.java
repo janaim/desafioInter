@@ -38,7 +38,7 @@ public class ClienteTest {
 
             Optional<Cliente> clientes = Optional.of(new Cliente());
 
-            Mockito.when(clienteRepoMock.findById(ArgumentMatchers.eq(id))).thenReturn(clientes);
+            Mockito.when(clienteRepoMock.findById(id)).thenReturn(clientes);
 
             Cliente result = clienteServiceMock.buscarClientePorId(id);
 
@@ -68,7 +68,7 @@ public class ClienteTest {
 
         Optional<Cliente> clientes = Optional.of(new Cliente());
 
-        Mockito.when(clienteRepoMock.findByNome(ArgumentMatchers.eq(nome))).thenReturn(clientes);
+        Mockito.when(clienteRepoMock.findByNome(nome)).thenReturn(clientes);
 
         Cliente result = clienteServiceMock.buscarClientePorNome(nome);
 
@@ -98,7 +98,7 @@ public class ClienteTest {
 
         Optional<Cliente> clientes = Optional.of(new Cliente());
 
-        Mockito.when(clienteRepoMock.findByCpf(ArgumentMatchers.eq(cpf))).thenReturn(clientes);
+        Mockito.when(clienteRepoMock.findByCpf(cpf)).thenReturn(clientes);
 
         Cliente result = clienteServiceMock.buscarClientePorCpf(cpf);
 

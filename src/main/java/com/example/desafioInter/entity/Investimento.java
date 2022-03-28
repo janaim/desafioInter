@@ -4,12 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.aspectj.weaver.IClassFileProvider;
-
-import javax.persistence.*;
-import javax.validation.groups.ConvertGroup;
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.*;
 
 @Data
 @AllArgsConstructor
@@ -34,7 +31,7 @@ public class Investimento implements Serializable  {
     @Column(name = "quantidadeEmpresasDiversificacao", nullable = false)
     private int quantidadeEmpresasDiversificacao;
 
-    @OneToMany( targetEntity=Empresa.class )
+    @OneToMany(targetEntity = Empresa.class)
     private List<List<Empresa>> acoesInvestidas;
 
 }

@@ -137,11 +137,6 @@ public class DesafioInterApplication implements CommandLineRunner {
 //
 //			}
 //		}
-
-//		System.out.println("para" +somatorias);
-//		System.out.println("para2" +empresasInvestidas);
-
-		//retornar ações com menor troco
 	}
 
 
