@@ -6,6 +6,9 @@ import com.example.desafioInter.entity.Investimento;
 import com.example.desafioInter.service.InvestimentoService;
 import java.net.URI;
 import java.util.List;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,13 +16,16 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 
 @RestController
-@RequestMapping("/investimento")
+@RequestMapping("/api")
+@Api(value = "API REST Investimentos")
+@CrossOrigin(value = "*")
 public class InvestimentoResource {
 
     @Autowired
     private InvestimentoService investimentoService;
 
-    @PostMapping
+    @PostMapping("/investimento")
+    @ApiOperation(value = "Cria um novo investimento vinculado a um cliente!")
     public ResponseEntity<Investimento> briarNovoInvestimentoPorCliente(
             @RequestBody Investimento investimento) {
         Investimento novoInvestimento =
@@ -31,6 +37,7 @@ public class InvestimentoResource {
 
     @RequestMapping(value = "investimento/clienteLista/{cliente}",
             method = RequestMethod.GET, params = "filter")
+    @ApiOperation(value = "Busca a lista geral de investimentos por cliente!")
     public ResponseEntity<List<Investimento>>
     buscarListaGeralDeInvestimentosPorCliente(Cliente cliente) {
         List<Investimento> listaGeralInvestimentosCliente =
@@ -39,6 +46,7 @@ public class InvestimentoResource {
     }
 
     @GetMapping("investimento/{empresa}")
+    @ApiOperation(value = "Busca o total de investimentos por empresa!")
     public ResponseEntity<List<Investimento>>
         buscarTotalDeInvestimentosPorEmpresa(Empresa empresa) {
         List<Investimento> listaGeralInvestimentosCliente =
@@ -48,6 +56,7 @@ public class InvestimentoResource {
 
     @RequestMapping(value = "investimento/investimentoCliente/{cliente}"
             , method = RequestMethod.GET, params = "filter")
+    @ApiOperation(value = "Busca um investimento específico por cliente!")
     public ResponseEntity<Investimento> buscarInvestimentoEspecificoPorCliente(Cliente cliente) {
         Investimento investimentoCliente =
                 this.investimentoService.buscarInvestimentoEspecificoPorCliente(cliente);
